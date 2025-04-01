@@ -1,0 +1,45 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= content_for(:title) || "Sprint Zero"
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    %meta{:content => "yes", :name => "mobile-web-app-capable"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = yield :head
+    %link{:href => "/icon.png", :rel => "icon", :type => "image/png"}/
+    %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
+    %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
+    = stylesheet_link_tag :app, "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  %body
+    %nav.navbar.is-dark{:role => "navigation", "aria-label" => "main navigation"}
+      .container
+        %div.navbar-brand
+          %a.navbar-item{:href => "#"}
+            %img{:src => "/icon.svg", :width => "32", :height => "32", :alt => "Sprint Zero"}
+          
+          %a.navbar-burger{:role => "button", "aria-label" => "menu", "aria-expanded" => "false", "data-target" => "mainNavbar"}
+            %span{"aria-hidden" => "true"}
+            %span{"aria-hidden" => "true"}
+            %span{"aria-hidden" => "true"}
+          
+        %div#mainNavbar.navbar-menu
+          %div.navbar-start
+            = link_to "Home", root_path, class: "navbar-item"
+            %a.navbar-item{:href => "#"}
+              Page 2
+      
+        %div.navbar-end
+          %div.navbar-item
+            %div.buttons
+              %a.button{:href => "#"}
+                Login
+              %a.button.is-primary{:href => "#"}
+                Sign up
+
+    %section.section
+      .container
+        = yield

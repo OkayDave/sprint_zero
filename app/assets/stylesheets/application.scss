@@ -1,0 +1,14 @@
+// Sassy
+// @use "bulma";
+@use "sass" with (
+  $family-primary: '"Nunito", sans-serif',
+  $text: #1c1e21,           // Dark charcoal for great contrast & softer than black
+  $link: #4a6ee0,           // Soft blue with clarity and contrast
+  $primary: #5865F2,        // A slightly muted periwinkle-purple (Discord vibes, super clean)
+  $info: #3EC1D3,           // Teal-blue, bright but not harsh
+  $success: #7FD18C,        // Calm minty green — fresh without looking radioactive
+  $warning: #F5A623,        // Warm amber — attention-grabbing but elegant
+  $danger: #E05C5C          // Muted red — punchy but not firetruck
+);
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
