@@ -1,2 +1,221 @@
-%h1 hello
-%p.is-primary This is a placeholder
+.columns
+  .column.is-4
+    .box
+      %h1.title.is-4 Component Showcase
+      %p.subtitle.is-6 A demonstration of Bulma components
+      
+      .content
+        %h2.is-5 Buttons
+        .buttons
+          %button.button Button
+          %button.button.is-primary Primary
+          %button.button.is-info Info
+          %button.button.is-success Success
+          %button.button.is-warning Warning
+          %button.button.is-danger Danger
+          %button.button.is-light Light
+          %button.button.is-dark Dark
+          
+        %h2.is-5.mt-4 Tags
+        .tags
+          %span.tag Tag
+          %span.tag.is-primary Primary
+          %span.tag.is-info Info
+          %span.tag.is-success Success
+          %span.tag.is-warning Warning
+          %span.tag.is-danger Danger
+          
+        %h2.is-5.mt-4 Progress Bars
+        %progress.progress{value: "15", max: "100"} 15%
+        %progress.progress.is-primary{value: "30", max: "100"} 30%
+        %progress.progress.is-info{value: "45", max: "100"} 45%
+        %progress.progress.is-success{value: "60", max: "100"} 60%
+        %progress.progress.is-warning{value: "75", max: "100"} 75%
+        %progress.progress.is-danger{value: "90", max: "100"} 90%
+
+        %h2.is-5.mt-4 Breadcrumb
+        %nav.breadcrumb{"aria-label" => "breadcrumbs"}
+          %ul
+            %li
+              %a Home
+            %li
+              %a Components
+            %li.is-active
+              %a{"aria-current" => "page"} Showcase
+
+        %h2.is-5.mt-4 Tabs
+        .tabs
+          %ul
+            %li.is-active
+              %a Tab 1
+            %li
+              %a Tab 2
+            %li
+              %a Tab 3
+            %li
+              %a Tab 4
+
+  .column.is-8
+    .box
+      %h2.title.is-4 Main Content Area
+      
+      .content
+        %p
+          This is the larger column following the Golden Ratio (approximately 1:1.618).
+          The left column takes up 4/12 of the space, while this column takes up 8/12.
+        
+        .notification.is-info
+          %button.delete
+          This is an info notification with a delete button.
+        
+        %h2.title.is-5.mt-4 Form Inputs
+        .field
+          %label.label Username
+          .control.has-icons-left
+            %input.input{type: "text", placeholder: "Enter username"}
+            %span.icon.is-small.is-left
+              %span [@]
+        
+        .field
+          %label.label Password
+          .control.has-icons-left
+            %input.input{type: "password", placeholder: "Enter password"}
+            %span.icon.is-small.is-left
+              %span [*]
+
+        .field
+          %label.label Email
+          .control.has-icons-left
+            %input.input{type: "email", placeholder: "Enter email"}
+            %span.icon.is-small.is-left
+              %span [@]
+
+        .field
+          %label.label Textarea
+          .control
+            %textarea.textarea{placeholder: "Enter your message"}
+
+        .field
+          %label.label Select
+          .control
+            .select
+              %select
+                %option Select dropdown
+                %option With options
+                %option And more
+
+        .field
+          %label.label Checkbox
+          .control
+            %label.checkbox
+              %input{type: "checkbox"}
+              Remember me
+
+        .field
+          %label.label Radio
+          .control
+            %label.radio
+              %input{type: "radio", name: "answer"}
+              Yes
+            %label.radio
+              %input{type: "radio", name: "answer"}
+              No
+
+        .field
+          %label.label File
+          .control
+            .file
+              %label.file-label
+                %input.file-input{type: "file"}
+                %span.file-cta
+                  %span.file-icon
+                    %span [📁]
+                  %span.file-label Choose a file...
+
+        %h2.title.is-5.mt-4 Table
+        %table.table.is-fullwidth
+          %thead
+            %tr
+              %th Name
+              %th Email
+              %th Role
+              %th Status
+          %tbody
+            %tr
+              %td John Doe
+              %td john@example.com
+              %td Admin
+              %td
+                %span.tag.is-success Active
+            %tr
+              %td Jane Smith
+              %td jane@example.com
+              %td User
+              %td
+                %span.tag.is-info Pending
+            %tr
+              %td Bob Wilson
+              %td bob@example.com
+              %td Editor
+              %td
+                %span.tag.is-warning Inactive
+
+        %h2.title.is-5.mt-4 Card
+        .card
+          %header.card-header
+            %p.card-header-title Card header
+            %button.card-header-icon{"aria-label" => "more options"}
+              %span.icon
+                %span [⋮]
+          .card-content
+            .content
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+          %footer.card-footer
+            %a.card-footer-item Save
+            %a.card-footer-item Edit
+            %a.card-footer-item Delete
+
+        %h2.title.is-5.mt-4 Pagination
+        %nav.pagination{"aria-label" => "pagination"}
+          %a.pagination-previous Previous
+          %a.pagination-next Next page
+          %ul.pagination-list
+            %li
+              %a.pagination-link{"aria-label" => "Goto page 1"} 1
+            %li
+              %span.pagination-ellipsis &hellip;
+            %li
+              %a.pagination-link{"aria-label" => "Goto page 45"} 45
+            %li
+              %a.pagination-link.is-current{"aria-label" => "Page 46", "aria-current" => "page"} 46
+            %li
+              %a.pagination-link{"aria-label" => "Goto page 47"} 47
+            %li
+              %span.pagination-ellipsis &hellip;
+            %li
+              %a.pagination-link{"aria-label" => "Goto page 86"} 86
+
+        %h2.title.is-5.mt-4 Panel
+        .panel
+          %p.panel-heading Repositories
+          %a.panel-block.is-active
+            %span.panel-icon
+              %span [📁]
+            bulma
+          %a.panel-block
+            %span.panel-icon
+              %span [📁]
+            marksheet
+          %a.panel-block
+            %span.panel-icon
+              %span [📁]
+            minireset.css
+          %a.panel-block
+            %span.panel-icon
+              %span [📁]
+            jgthms.github.io
+          %label.panel-block
+            %input{type: "checkbox"}
+            Remember me
+          .panel-block
+            %button.button.is-link.is-outlined.is-fullwidth Reset all filters
