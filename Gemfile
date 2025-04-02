@@ -59,6 +59,9 @@ group :development do
 
   # Git hooks manager
   gem "overcommit"
+
+  # Email preview in development
+  gem "letter_opener"
 end
 
 group :test do
@@ -86,11 +89,17 @@ group :test do
   # Faker for generating test data
   gem "faker"
 
-  # Controller testing
-  gem "rails-controller-testing"
+  # Pundit matchers for policy specs
+  gem "pundit-matchers", "~> 3.1"
 end
 
 gem "haml", "~> 6.3"
 gem "haml-rails", "~> 2.1"
 gem "html2haml", "~> 2.3"
 gem "dartsass-rails", "~> 0.5.1"
+
+# Authentication
+gem "devise"
+
+# Authorization
+gem "pundit"
