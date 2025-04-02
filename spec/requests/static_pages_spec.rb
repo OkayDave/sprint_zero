@@ -51,7 +51,7 @@ RSpec.describe "StaticPages", type: :request do
         get static_page_path(id: -999)
 
         expect(response).to have_http_status(:not_found)
-        expect(response.body).to include("not found")
+        expect(response.body).to include("404")
       end
     end
   end
