@@ -30,6 +30,7 @@ Setting up a new Rails application can often feel repetitive — setting up the 
 | Frontend              | `bulma-rails`, `stimulus-rails`, `turbo-rails` |
 | Linting               | `rubocop`    |
 | Local Development     | `awesome_print`, `bullet`, `dotenv`, `letter_opener`, `overcommit` |
+| Pagination            | `pagy`       |
 | Rails                 | `rails 8.0.2`|
 | Ruby                  | `ruby 3.4.2` |
 | Security Scanning     | `brakeman`   |
@@ -97,7 +98,7 @@ After cloning and setting up the project, you'll want to set up your own reposit
 git remote remove origin
 
 # Add your new repository as the origin
-git remote add origin git@github.com:OkayDave/sprint_zero.git
+git remote add origin git@github.com:your_username/your_new_app_name.git
 
 # Push your code to the new repository
 git push -u origin main

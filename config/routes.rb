@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get "home", to: "home#show"
 
-  resources :static_pages, only: [ :show ]
+  resources :static_pages, only: [ :show, :index ]
 
   # Defines the root path route ("/")
   root "home#show"

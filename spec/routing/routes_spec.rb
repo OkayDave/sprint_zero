@@ -17,6 +17,10 @@ RSpec.describe "Routes", type: :routing do
     it "routes /static_pages/:id to static_pages#show" do
       expect(get: "/static_pages/1").to route_to(controller: "static_pages", action: "show", id: "1")
     end
+
+    it "routes /static_pages to static_pages#index" do
+      expect(get: "/static_pages").to route_to(controller: "static_pages", action: "index")
+    end
   end
 
   describe "Devise routes" do

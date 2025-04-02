@@ -568,6 +568,7 @@ DEPENDENCIES
   kamal
   letter_opener
   overcommit
+  pagy
   propshaft
   puma (>= 5.0)
   pundit

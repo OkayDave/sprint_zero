@@ -5,4 +5,8 @@ class StaticPagesController < ApplicationController
 
     authenticate_user! if @static_page.requires_sign_in
   end
+
+  def index
+    @pagy, @static_pages = pagy(StaticPage.includes(:rich_text_content).all, size: [ 1, 1, 1, 1 ])
+  end
 end
