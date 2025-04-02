@@ -1,0 +1,22 @@
+PreCommit:
+  RuboCop:
+    enabled: true
+    command: ['bundle', 'exec', 'rubocop', '-A']
+    on_warn: fail
+
+  RSpec:
+    enabled: true
+    command: ['bundle', 'exec', 'rspec']
+    on_warn: fail
+
+  ALL:
+    quiet: false
+    requires_files: true
+    required: false
+    exclude:
+      - 'node_modules/**/*'
+      - 'vendor/**/*'
+      - 'db/schema.rb'
+      - 'tmp/**/*'
+      - 'log/**/*'
+      - 'coverage/**/*' 

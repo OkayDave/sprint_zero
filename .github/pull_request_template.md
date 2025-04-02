@@ -14,14 +14,25 @@
 <!-- Please link to the issue(s) this PR addresses -->
 Fixes #
 
+## Testing
+<!-- Please check the boxes that apply -->
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
+- [ ] I have tested these changes in development environment
+- [ ] I have tested edge cases and error conditions
+
 ## Checklist
 <!-- Please check the boxes that apply -->
 - [ ] My code follows the style guidelines of this project
+- [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings or errors
 - [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
+
+## Code Review
+<!-- Note about automated reviews -->
+🤖 This PR will automatically request a review from GitHub Copilot. Please address any feedback provided.
 
 ## Additional Notes
 <!-- Add any additional notes or context about the PR here --> 
