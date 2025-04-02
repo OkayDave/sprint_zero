@@ -18,7 +18,7 @@
     %nav.navbar.is-dark{:role => "navigation", "aria-label" => "main navigation"}
       .container
         %div.navbar-brand
-          %a.navbar-item{:href => "#"}
+          = link_to root_path, class: "navbar-item" do
             %img{:src => "/icon.svg", :width => "32", :height => "32", :alt => "Sprint Zero"}
           
           %a.navbar-burger{:role => "button", "aria-label" => "menu", "aria-expanded" => "false", "data-target" => "mainNavbar"}
@@ -35,11 +35,13 @@
         %div.navbar-end
           %div.navbar-item
             %div.buttons
-              %a.button{:href => "#"}
-                Login
-              %a.button.is-primary{:href => "#"}
-                Sign up
+              - if user_signed_in?
+                = button_to "Sign Out", destroy_user_session_path, method: :delete, class: "button is-light", data: { turbo_confirm: "Are you sure you want to sign out?" }
+              - else
+                = link_to "Login", new_user_session_path, class: "button is-light"
+                = link_to "Sign up", new_user_registration_path, class: "button is-primary"
 
     %section.section
       .container
+        = render "shared/flash_messages"
         = yield
