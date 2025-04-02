@@ -56,30 +56,33 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # Git hooks manager
+  gem "overcommit"
 end
 
 group :test do
   # Core testing framework
   gem "rspec-rails"
-  
+
   # Factory definitions
   gem "factory_bot_rails"
-  
+
   # OpenAPI/Swagger testing
   gem "rswag-ui"
   gem "rswag-api"
   gem "rswag-specs"
-  
+
   # Performance testing
   gem "rspec-benchmark"
-  
+
   # Test coverage
   gem "simplecov", require: false
   gem "simplecov_json_formatter"
-  
+
   # Database cleaner for tests
   gem "database_cleaner-active_record"
-  
+
   # Faker for generating test data
   gem "faker"
 

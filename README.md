@@ -42,4 +42,27 @@ bin/dev
 
 ## 💡 Contributing
 
-Feel free to fork, clone, and make PRs. If there’s a configuration or gem you think should be included, open an issue and let’s discuss.
+Feel free to fork, clone, and make PRs. If there's a configuration or gem you think should be included, open an issue and let's discuss.
+
+# Git Hooks
+
+This project uses [overcommit](https://github.com/sds/overcommit) to manage Git hooks. When you first clone the repository, run:
+
+```bash
+bin/setup
+```
+
+This will set up your development environment, including:
+- Installing dependencies
+- Setting up the database
+- Installing and configuring git hooks
+
+The following pre-commit hooks are configured:
+- RuboCop: Automatically fixes style issues and fails if there are unfixable issues
+- RSpec: Runs the test suite and fails if any tests fail
+
+If you need to bypass the hooks for a specific commit (not recommended), you can use:
+
+```bash
+OVERCOMMIT_DISABLE=1 git commit
+```
