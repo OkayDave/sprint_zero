@@ -24,16 +24,16 @@ Setting up a new Rails application can often feel repetitive — setting up the 
 | Purpose             | Gem/Tool     |
 |---------------------|--------------|
 | Application Framework | `rails`     |
-| Language Runtime     | `ruby 3.4.2` |
-| Database             | `sqlite3`    |
-| Frontend             | `turbo-rails`, `stimulus-rails`, `bulma-rails` |
-| View Templates       | `haml-rails` |
-| Linting              | `rubocop`    |
-| Security Scanning    | `brakeman`   |
-| Testing             | `rspec-rails`, `factory_bot_rails`, `rswag`, `simplecov`, `faker`, `pundit-matchers`, `capybara` |
 | Authentication      | `devise`     |
 | Authorisation       | `pundit`     |
-| Local Development   | `letter_opener`, `overcommit` |
+| Database             | `sqlite3`    |
+| Frontend             | `bulma-rails`, `stimulus-rails`, `turbo-rails` |
+| Language Runtime     | `ruby 3.4.2` |
+| Linting              | `rubocop`    |
+| Local Development   | `awesome_print`, `bullet`, `dotenv`, `letter_opener`, `overcommit` |
+| Security Scanning    | `brakeman`   |
+| Testing             | `capybara`, `factory_bot_rails`, `faker`, `pundit-matchers`, `rspec-rails`, `rswag`, `simplecov` |
+| View Templates       | `haml-rails` |
 
 ## 🚀 Getting Started
 
@@ -42,8 +42,32 @@ git clone https://github.com/OkayDave/sprint_zero.git your_new_app_name
 cd your_new_app_name
 bin/setup
 bin/dev
-
 ```
+
+### Setting Up Your Repository
+
+After cloning and setting up the project, you'll want to set up your own repository:
+
+```bash
+# Remove the original remote
+git remote remove origin
+
+# Add your new repository as the origin
+git remote add origin https://github.com/your-username/your-new-repo.git
+
+# Push your code to the new repository
+git push -u origin main
+```
+
+### Environment Configuration
+
+This project uses [dotenv](https://github.com/bkeepers/dotenv) for environment configuration. After cloning the repository, copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+You can then customise your local environment variables in `.env`. For more information about environment variable overrides, see the [dotenv documentation](https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use).
 
 ## 💡 Contributing
 
