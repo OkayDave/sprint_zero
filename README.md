@@ -1,8 +1,12 @@
+[![CI](https://github.com/OkayDave/sprint_zero/actions/workflows/ci.yml/badge.svg)](https://github.com/OkayDave/sprint_zero/actions/workflows/ci.yml)
+
 # SprintZero
 
 **Kickstart your next Rails project with sensible defaults and a curated setup.**
 
 SprintZero is a boilerplate Ruby on Rails application designed to save time and effort when starting a new project. It comes pre-configured with modern defaults and carefully selected tools so you can get straight to building your app — not configuring it.
+
+Setting up a new Rails application can often feel repetitive — setting up the same gems, tweaking the same config files, installing the same frameworks. SprintZero removes that friction. Clone it, rename it, and you're off.
 
 ## ✨ Features
 
@@ -12,26 +16,22 @@ SprintZero is a boilerplate Ruby on Rails application designed to save time and 
 - **Bulma** CSS framework for sleek and responsive UIs
 - **HAML** templating for cleaner view code
 - **Brakeman** and **Rubocop** for security and linting
-- **Rspec and friends** for robust testing
-
-## 🔧 Why SprintZero?
-
-Setting up a new Rails application can often feel repetitive — setting up the same gems, tweaking the same config files, installing the same frameworks. SprintZero removes that friction. Clone it, rename it, and you're off.
-
+- **Rspec** for robust testing
+- **Avo** as the admin panel
 
 ## 🧰 Included Gems & Tools
 
 | Purpose               | Gem/Tool     |
 |-----------------------|--------------|
-| Admin Panel           | `avo` | 
-| Application Framework | `rails`     |
+| Admin Panel           | `avo`        | 
 | Authentication        | `devise`     |
 | Authorisation         | `pundit`     |
 | Database              | `sqlite3`    |
 | Frontend              | `bulma-rails`, `stimulus-rails`, `turbo-rails` |
-| Language Runtime      | `ruby 3.4.2` |
 | Linting               | `rubocop`    |
 | Local Development     | `awesome_print`, `bullet`, `dotenv`, `letter_opener`, `overcommit` |
+| Rails                 | `rails 8.0.2`|
+| Ruby                  | `ruby 3.4.2` |
 | Security Scanning     | `brakeman`   |
 | Testing               | `capybara`, `factory_bot_rails`, `faker`, `pundit-matchers`, `rspec-rails`, `rswag`, `simplecov` |
 | View Templates        | `haml-rails` |
@@ -40,7 +40,7 @@ Setting up a new Rails application can often feel repetitive — setting up the 
 
 ### Slugged
 
-The `Slugged` concern provides URL-friendly parameterization for your models. When included, it:
+The `Slugged` concern provides URL-friendly parameterisation for your models. When included, it:
 
 1. Overrides the `to_param` method to create SEO-friendly URLs
 2. Provides a `name_or_title` method that intelligently selects the best identifier for your model
@@ -82,7 +82,7 @@ article.to_param # => "123-whats-new-in-2024"
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/OkayDave/sprint_zero.git your_new_app_name
+git clone git@github.com:OkayDave/sprint_zero.git your_new_app_name
 cd your_new_app_name
 bin/setup
 bin/dev
@@ -97,7 +97,7 @@ After cloning and setting up the project, you'll want to set up your own reposit
 git remote remove origin
 
 # Add your new repository as the origin
-git remote add origin https://github.com/your-username/your-new-repo.git
+git remote add origin git@github.com:OkayDave/sprint_zero.git
 
 # Push your code to the new repository
 git push -u origin main
