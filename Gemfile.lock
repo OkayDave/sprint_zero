@@ -75,6 +75,7 @@ GEM
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.3)
+    awesome_print (1.9.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
@@ -89,6 +90,9 @@ GEM
     brakeman (7.0.0)
       racc
     builder (3.3.0)
+    bullet (8.0.2)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     bulma-rails (1.0.3)
       dartsass-rails (~> 0.5.0)
     capybara (3.40.0)
@@ -462,6 +466,7 @@ GEM
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
+    uniform_notifier (1.16.0)
     uri (1.0.3)
     useragent (0.16.11)
     warden (1.2.9)
@@ -490,8 +495,10 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  awesome_print
   bootsnap
   brakeman
+  bullet
   bulma-rails
   capybara
   cssbundling-rails
@@ -499,6 +506,7 @@ DEPENDENCIES
   database_cleaner-active_record
   debug
   devise
+  dotenv
   factory_bot_rails
   faker
   haml (~> 6.3)
