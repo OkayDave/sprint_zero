@@ -95,7 +95,7 @@ group :test do
   gem "faker"
 
   # Pundit matchers for policy specs
-  gem "pundit-matchers", "~> 3.1"
+  gem "pundit-matchers", "~> 4.0"
 
   # Capybara for integration tests
   gem "capybara"
