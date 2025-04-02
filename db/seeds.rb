@@ -9,15 +9,15 @@
 #   end
 
 # Create admin user
-admin = User.create!(
-  email: 'admin@example.com',
-  password: 'password123',
-  password_confirmation: 'password123',
-  role: 'admin',
-  confirmed_at: Time.current
-)
+admin = User.find_or_create_by!(email: 'admin@example.com') do |user|
+  user.password = 'password123'
+  user.password_confirmation = 'password123'
+  user.role = 'admin'
+  user.confirmed_at = Time.current
 
-puts "Created admin user: #{admin.email}"
+  puts "Created admin user: #{admin.email}"
+end
+
 
 # Create static pages
 static_pages = [
@@ -45,4 +45,4 @@ static_pages.each do |page_attrs|
   end
 end
 
-puts "Created #{static_pages.size} static pages"
+puts "Created static pages"
