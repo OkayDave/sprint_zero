@@ -1,0 +1,20 @@
+.section
+  .container
+    .columns.is-centered
+      .column.is-4
+        .box
+          %h1.title.has-text-centered Forgot your password?
+          
+          = render "devise/shared/error_messages", resource: resource
+          
+          = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+            .field
+              = f.label :email, class: "label"
+              .control
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+            
+            .field
+              .control
+                = f.submit "Send me reset password instructions", class: "button is-primary is-fullwidth"
+        
+        = render "devise/shared/links" 

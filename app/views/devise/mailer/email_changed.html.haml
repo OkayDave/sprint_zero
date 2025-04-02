@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %style
+      :css
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        .box {
+          background: #fff;
+          border-radius: 6px;
+          box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+          padding: 1.25rem;
+        }
+        .title {
+          color: #363636;
+          font-size: 1.5rem;
+          font-weight: 600;
+          line-height: 1.125;
+          margin-bottom: 1rem;
+        }
+        .content {
+          color: #4a4a4a;
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+        .help {
+          color: #7a7a7a;
+          font-size: 0.875rem;
+          margin-top: 0.25rem;
+        }
+
+  %body
+    .container
+      .box
+        %h1.title Email Changed
+        
+        .content
+          %p Hello #{@resource.email}!
+          
+          %p We're contacting you to notify you that your email has been changed to #{@resource.email}.
+          
+          %p.help If you didn't request this change, please contact us immediately. 

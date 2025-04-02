@@ -1,0 +1,30 @@
+.section
+  .container
+    .columns.is-centered
+      .column.is-4
+        .box
+          %h1.title.has-text-centered Sign in
+          
+          = render "devise/shared/error_messages", resource: resource
+          
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .field
+              = f.label :email, class: "label"
+              .control
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+            
+            .field
+              = f.label :password, class: "label"
+              .control
+                = f.password_field :password, autocomplete: "current-password", class: "input"
+              - if devise_mapping.rememberable?
+                .field
+                  .control
+                    = f.check_box :remember_me, class: "checkbox"
+                    = f.label :remember_me, class: "checkbox"
+            
+            .field
+              .control
+                = f.submit "Sign in", class: "button is-primary is-fullwidth"
+        
+        = render "devise/shared/links" 
