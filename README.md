@@ -21,19 +21,20 @@ Setting up a new Rails application can often feel repetitive — setting up the 
 
 ## 🧰 Included Gems & Tools
 
-| Purpose             | Gem/Tool     |
-|---------------------|--------------|
+| Purpose               | Gem/Tool     |
+|-----------------------|--------------|
+| Admin Panel           | `avo` | 
 | Application Framework | `rails`     |
-| Authentication      | `devise`     |
-| Authorisation       | `pundit`     |
-| Database             | `sqlite3`    |
-| Frontend             | `bulma-rails`, `stimulus-rails`, `turbo-rails` |
-| Language Runtime     | `ruby 3.4.2` |
-| Linting              | `rubocop`    |
-| Local Development   | `awesome_print`, `bullet`, `dotenv`, `letter_opener`, `overcommit` |
-| Security Scanning    | `brakeman`   |
-| Testing             | `capybara`, `factory_bot_rails`, `faker`, `pundit-matchers`, `rspec-rails`, `rswag`, `simplecov` |
-| View Templates       | `haml-rails` |
+| Authentication        | `devise`     |
+| Authorisation         | `pundit`     |
+| Database              | `sqlite3`    |
+| Frontend              | `bulma-rails`, `stimulus-rails`, `turbo-rails` |
+| Language Runtime      | `ruby 3.4.2` |
+| Linting               | `rubocop`    |
+| Local Development     | `awesome_print`, `bullet`, `dotenv`, `letter_opener`, `overcommit` |
+| Security Scanning     | `brakeman`   |
+| Testing               | `capybara`, `factory_bot_rails`, `faker`, `pundit-matchers`, `rspec-rails`, `rswag`, `simplecov` |
+| View Templates        | `haml-rails` |
 
 ## 📦 Included Concerns
 
