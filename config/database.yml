@@ -5,7 +5,7 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: <%= ENV.fetch("DB_ADAPTER") %>
+  adapter: <%= ENV.fetch("DB_ADAPTER", "sqlite3") %>
   host: <%= ENV.fetch("DB_HOST") %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: <%= ENV.fetch("DB_NAME") %>
