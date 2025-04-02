@@ -91,6 +91,9 @@ group :test do
 
   # Pundit matchers for policy specs
   gem "pundit-matchers", "~> 3.1"
+
+  # Capybara for integration tests
+  gem "capybara"
 end
 
 gem "haml", "~> 6.3"
