@@ -30,5 +30,9 @@ Fixes #
 - [ ] My changes generate no new warnings or errors
 - [ ] I have added tests that prove my fix is effective or that my feature works
 
+## Code Review
+<!-- Note about automated reviews -->
+🤖 This PR will automatically request a review from GitHub Copilot. Please address any feedback provided.
+
 ## Additional Notes
 <!-- Add any additional notes or context about the PR here --> 
