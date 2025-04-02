@@ -91,6 +91,25 @@
     "@parcel/watcher-win32-ia32" "2.5.1"
     "@parcel/watcher-win32-x64" "2.5.1"
 
+"@rails/actiontext@^8.0.200":
+  version "8.0.200"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-8.0.200.tgz#b0ed8ba50ec31dd8fcc7a8885403c58b2b4f378d"
+  integrity sha512-p9SVulDmWKMChQpNYFrRBGa2aIfMSw8vyCRW9bwHzihFB8eAZ1NE6ak88nr037gwurbCBv4UVdnwndtuh2piAA==
+  dependencies:
+    "@rails/activestorage" ">= 8.0.0-alpha"
+
+"@rails/activestorage@>= 8.0.0-alpha":
+  version "8.0.200"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-8.0.200.tgz#147c088e2b4167d6d49292431bdbdf10b118d5bd"
+  integrity sha512-V7GnZXsAMPDWVOBv4/XpHwj5sOw5bWjidWCuUbK3Zx1xt2pOfFaeJDUG7fEWb1MwP4aW1oVVlGkJBdXVyvru0A==
+  dependencies:
+    spark-md5 "^3.0.1"
+
+"@types/trusted-types@^2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.7.tgz#baccb07a970b91707df3a3e8ba6896c57ead2d11"
+  integrity sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==
+
 braces@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/braces/-/braces-3.0.3.tgz#490332f40919452272d55a8480adc0c441358789"
@@ -109,6 +128,13 @@ detect-libc@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==
+
+dompurify@^3.2.3:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.2.4.tgz#af5a5a11407524431456cf18836c55d13441cd8e"
+  integrity sha512-ysFSFEDVduQpyhzAob/kkuJjf5zWkZD8/A9ywSp1byueyuCfHamrCBa14/Oc2iiB0e51B+NpxSl5gmzn+Ms/mg==
+  optionalDependencies:
+    "@types/trusted-types" "^2.0.7"
 
 fill-range@^7.1.1:
   version "7.1.1"
@@ -178,9 +204,21 @@ sass@^1.86.1:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.1.tgz#1ce5650fddd87abc099eda37dcff024c2667ae46"
   integrity sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
 
+spark-md5@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
+  integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
+
 to-regex-range@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/to-regex-range/-/to-regex-range-5.0.1.tgz#1648c44aae7c8d988a326018ed72f5b4dd0392e4"
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+trix@^2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-2.1.13.tgz#499a5f243eb05d44c92f00ee8fdda71f2ec9fad1"
+  integrity sha512-LTwj6HPo/CDL6KSclIwn41J+EwcqXHiUE43BBbg8Q/whaZcoUaODypHYoGIDd3M32KVXw98M5vC6zNCod9KB2w==
+  dependencies:
+    dompurify "^3.2.3"
