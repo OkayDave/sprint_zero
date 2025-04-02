@@ -35,6 +35,49 @@ Setting up a new Rails application can often feel repetitive — setting up the 
 | Testing             | `capybara`, `factory_bot_rails`, `faker`, `pundit-matchers`, `rspec-rails`, `rswag`, `simplecov` |
 | View Templates       | `haml-rails` |
 
+## 📦 Included Concerns
+
+### Slugged
+
+The `Slugged` concern provides URL-friendly parameterization for your models. When included, it:
+
+1. Overrides the `to_param` method to create SEO-friendly URLs
+2. Provides a `name_or_title` method that intelligently selects the best identifier for your model
+
+#### Usage
+
+```ruby
+class Article < ApplicationRecord
+  include Slugged
+end
+
+article = Article.create(name: "My First Article")
+article.to_param # => "123-my-first-article"
+```
+
+The concern will look for attributes in this order:
+1. `name` (if present)
+2. `title` (if present)
+3. `slug` (if present)
+
+If none of these attributes are present, it will return a blank string.
+
+#### Example URLs
+
+```ruby
+# With name
+article = Article.create(name: "Hello World!")
+article.to_param # => "123-hello-world"
+
+# With title
+article = Article.create(title: "Welcome to Rails")
+article.to_param # => "123-welcome-to-rails"
+
+# With special characters
+article = Article.create(name: "What's New in 2024?")
+article.to_param # => "123-whats-new-in-2024"
+```
+
 ## 🚀 Getting Started
 
 ```bash
