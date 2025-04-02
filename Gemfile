@@ -64,6 +64,9 @@ group :development do
 
   # Email preview in development
   gem "letter_opener"
+
+  # Bullet for performance issues
+  gem "bullet"
 end
 
 group :test do
