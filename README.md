@@ -12,6 +12,7 @@ SprintZero is a boilerplate Ruby on Rails application designed to save time and 
 - **Bulma** CSS framework for sleek and responsive UIs
 - **HAML** templating for cleaner view code
 - **Brakeman** and **Rubocop** for security and linting
+- **Rspec and friends** for robust testing
 
 ## 🔧 Why SprintZero?
 
@@ -29,6 +30,10 @@ Setting up a new Rails application can often feel repetitive — setting up the 
 | View Templates       | `haml-rails` |
 | Linting              | `rubocop`    |
 | Security Scanning    | `brakeman`   |
+| Testing             | `rspec-rails`, `factory_bot_rails`, `rswag`, `simplecov`, `faker`, `pundit-matchers`, `capybara` |
+| Authentication      | `devise`     |
+| Authorisation       | `pundit`     |
+| Local Development   | `letter_opener`, `overcommit` |
 
 ## 🚀 Getting Started
 
