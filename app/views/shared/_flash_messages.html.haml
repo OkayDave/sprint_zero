@@ -1,0 +1,19 @@
+- if flash[:notice]
+  .notification.is-success
+    %button.delete
+    = flash[:notice]
+
+- if flash[:alert]
+  .notification.is-danger
+    %button.delete
+    = flash[:alert]
+
+:javascript
+  document.addEventListener('DOMContentLoaded', () => {
+    (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+      const $notification = $delete.parentNode;
+      $delete.addEventListener('click', () => {
+        $notification.parentNode.removeChild($notification);
+      });
+    });
+  }); 
