@@ -46,3 +46,24 @@ static_pages.each do |page_attrs|
 end
 
 puts "Created static pages"
+
+# Create AI prompts
+[
+  {
+    title: 'Three Random Facts',
+    content: 'Please generate a short article with three random facts. The generated content can use the following html tags: <p>, <h1>, <h2>, <strong>, <em>, <ul>, <li>, <a>, <blockquote>. Do not use any other tags or styling.',
+    response_format: "Please respond with a JSON object which, as a minimum contains a `content` key which contains the generated HTML content. The response within `content` should be parseable via Ruby's `JSON.parse` method without any modifications.",
+    additional_options: {
+      model: OmniAI::Anthropic::Chat::Model::CLAUDE_3_7_SONNET_LATEST,
+      temperature: 0.5
+    }
+  }
+].each do |prompt_attrs|
+  AI::Prompt.find_or_create_by!(title: prompt_attrs[:title]) do |prompt|
+    prompt.content = prompt_attrs[:content]
+    prompt.response_format = prompt_attrs[:response_format]
+    prompt.additional_options = prompt_attrs[:additional_options]
+  end
+end
+
+puts "Created AI prompts"

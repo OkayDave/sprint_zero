@@ -1,0 +1,15 @@
+---
+description: 
+globs: *.rb
+alwaysApply: false
+---
+
+# Ruby Guidelines
+
+- Follow best practices for Ruby 3.4 and Rails 8
+- Use modern, idiomatic Ruby and Rails patterns and syntax
+- Be aware that Rubcop and Brakeman will run on all code generated
+- prefer methods like `attribute` and `attr_accessor` over explicit getter and setter methods
+- Ensure implementation code is easy to test with RSpec
+- Assume a non-thread-safe runtime environment
+
