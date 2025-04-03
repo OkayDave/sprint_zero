@@ -1,0 +1,27 @@
+.section
+  .container
+    .box
+      .level
+        .level-left
+          %h1.title Static Pages
+      .level-right
+
+      .table-container
+        %table.table.is-fullwidth.is-striped
+          %thead
+            %tr
+              %th Title
+              %th Content
+              %th Requires Sign In
+          %tbody
+            - @static_pages.each do |static_page|
+              %tr
+                %td= link_to static_page.title, static_page_path(static_page)
+                %td= static_page.content.to_plain_text.truncate(100)
+                %td
+                  - if static_page.requires_sign_in
+                    %span.tag.is-success Yes
+                  - else
+                    %span.tag.is-error No
+
+      = pagy_bulma_nav(@pagy).html_safe if @pagy.pages > 1 

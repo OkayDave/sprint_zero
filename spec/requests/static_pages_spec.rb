@@ -55,4 +55,60 @@ RSpec.describe "StaticPages", type: :request do
       end
     end
   end
+
+  describe "GET /static_pages" do
+    let!(:static_pages) { create_list(:static_page, 3) }
+
+    context "when user is not signed in" do
+      it "redirects to sign in page" do
+        get static_pages_path
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context "when user is signed in" do
+      let(:user) { create(:user) }
+
+      before do
+        sign_in user
+      end
+
+      it "returns http success" do
+        get static_pages_path
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the index template" do
+        get static_pages_path
+        expect(response.body).to include("Static Pages")
+      end
+
+      it "displays all static pages" do
+        get static_pages_path
+        static_pages.each do |page|
+          expect(response.body).to include(page.title)
+        end
+      end
+    end
+
+    context "when admin is signed in" do
+      let(:admin) { create(:user, :admin) }
+
+      before do
+        sign_in admin
+      end
+
+      it "returns http success" do
+        get static_pages_path
+        expect(response).to have_http_status(:success)
+      end
+
+      it "displays all static pages" do
+        get static_pages_path
+        static_pages.each do |page|
+          expect(response.body).to include(page.title)
+        end
+      end
+    end
+  end
 end
