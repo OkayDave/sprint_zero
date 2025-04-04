@@ -16,3 +16,4 @@ alwaysApply: false
 - Don't get stuck in a rabbit-hole or failing cycle. If you get stuck, please stop and ask for help
 - We should be aiming for full coverage of all models, controllers, policies, helpers, jobs, and routes.
 - In most cases, any changes/removals/additions to implementation code should have corresponding tests
+- The goal is 100% coverage for all models, requests, helpers, services, policies, and routes.
