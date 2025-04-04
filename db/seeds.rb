@@ -47,18 +47,32 @@ end
 
 puts "Created static pages"
 
+SEED_COMMON_RESPONSE = "Please respond with a JSON object which, as a minimum contains a `content` key which contains the generated HTML content. The response within `content` should be parseable via Ruby's `JSON.parse` method without any modifications."
+
+SEED_COMMON_OPTIONS = {
+  model: OmniAI::Anthropic::Chat::Model::CLAUDE_3_7_SONNET_LATEST,
+  temperature: 0.5
+}
+
+SEED_COMMON_HTML_TAGS = "<p>, <h1>, <h2>, <strong>, <em>, <ul>, <li>, <a>, <blockquote>"
+
 # Create AI prompts
-[
+prompts =[
   {
     title: 'Three Random Facts',
-    content: 'Please generate a short article with three random facts. The generated content can use the following html tags: <p>, <h1>, <h2>, <strong>, <em>, <ul>, <li>, <a>, <blockquote>. Do not use any other tags or styling.',
-    response_format: "Please respond with a JSON object which, as a minimum contains a `content` key which contains the generated HTML content. The response within `content` should be parseable via Ruby's `JSON.parse` method without any modifications.",
-    additional_options: {
-      model: OmniAI::Anthropic::Chat::Model::CLAUDE_3_7_SONNET_LATEST,
-      temperature: 0.5
-    }
+    content: 'Please generate a short article with three random facts. The generated content can use the following html tags: #{SEED_COMMON_HTML_TAGS}. Do not use any other tags or styling.',
+    response_format: SEED_COMMON_RESPONSE,
+    additional_options: SEED_COMMON_OPTIONS
+  },
+  {
+    title: 'Boring Legalese',
+    content: 'Please generate a boring legal document. The generated content can use the following html tags: #{SEED_COMMON_HTML_TAGS}. Do not use any other tags or styling.',
+    response_format: SEED_COMMON_RESPONSE,
+    additional_options: SEED_COMMON_OPTIONS
   }
-].each do |prompt_attrs|
+]
+
+prompts.each do |prompt_attrs|
   AI::Prompt.find_or_create_by!(title: prompt_attrs[:title]) do |prompt|
     prompt.content = prompt_attrs[:content]
     prompt.response_format = prompt_attrs[:response_format]
