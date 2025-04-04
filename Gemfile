@@ -105,6 +105,9 @@ group :test do
 
   # Capybara for integration tests
   gem "capybara"
+
+  # For testing external APIs
+  gem "webmock"
 end
 
 gem "haml", "~> 6.3"
@@ -119,3 +122,7 @@ gem "devise"
 gem "pundit"
 
 gem "awesome_print"
+
+# AI Integration
+gem "omniai"
+gem "omniai-anthropic"

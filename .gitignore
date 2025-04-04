@@ -10,6 +10,9 @@
 # Ignore top level and local environment files.
 /.env
 /.env.local
+/.env.development
+/.env.test
+/.env.production
 /.env.development.local
 /.env.test.local
 /.env.production.local
