@@ -18,7 +18,7 @@ Setting up a new Rails application can often feel repetitive — setting up the 
 - **Brakeman** and **Rubocop** for security and linting
 - **Rspec** for robust testing
 - **Avo** as the admin panel
-- **Anthropic's Calude Sonnet** for AI/LLM integration
+- **Anthropic's Claude Sonnet** for AI/LLM integration
 
 ## 🧰 Included Gems & Tools
 
@@ -55,16 +55,20 @@ class Article < ApplicationRecord
   include Slugged
 end
 
+# to_param override
 article = Article.create(name: "My First Article")
 article.to_param # => "123-my-first-article"
+
+# url helper
+article_path(123) # => "/articles/123-my-first-article"
 ```
 
-The concern will look for attributes in this order:
+The `#name_or_title` method will look for attributes in this order:
 1. `name` (if present)
 2. `title` (if present)
 3. `slug` (if present)
 
-If none of these attributes are present, it will return a blank string.
+If none of these attributes are present, `#name_or_title` will return a blank string, and `#to_param` will fallback to default Rails behaviour; so `article_path(123) # => /articles/1`
 
 ### HasAIContent
 
@@ -146,7 +150,7 @@ Get you `.env` files in order. I'd recommend having separate files for each env:
 
 Replace the values within these two new files with your own.
 
-Replace references to SprintZero with your own app name. I use Find and Replace in my editor but if you're brave and smarter than me you could use something like `sed`. Here's what you're looking for though. There's are 30-40 refs in total.
+Replace references to SprintZero with your own app name. I use Find and Replace in my editor but if you're brave and smarter than me you could use something like `sed`. Here's what you're looking for though. There's around 40ish references in total.
 
 ```
 sprintzero
@@ -155,7 +159,14 @@ sprint_zero
 
 ```
 
-Make any changes you need to your Database setup. I default to `sqlite3` with values declared in the `.env*.local` files, so if you want an alternative store then add them to your Gemfile.
+Generate a new `config/master.key` by throwing away the current secrets and creating a new one.
+
+```bash
+rm config/credentials.yml.enc
+bin/rails credentials:edit 
+```
+
+Make any changes you need to your Database setup. I default to `sqlite3` with values declared in the `.env*.local` files, so if you want to use an alternative datastore then you'll also need to add the supporting gem to the Gemfile.
 
 Last thing is to run the `bin/setup` script. This will install your bundle; install your js dependencies; configure pre-commit Git hooks via `overcommit`; and create your DB with the schema and seeds.
 
@@ -168,27 +179,55 @@ Now you're ready to roll. The procfile is configured to run `rails s`, watch for
 bin/dev
 ```
 
-Have fun, you productive, maginificient person!
+**Have fun, you productive, magnificent person!**
 
-### Environment Vars
+## Environment Vars
 
 SprintZero uses [dotenv](https://github.com/bkeepers/dotenv) for environment configuration.
 
-# Git Hooks
+See `.env.example` and copy the file to your `*.local` overrides as described in the instructions above.
 
-This project uses [overcommit](https://github.com/sds/overcommit) to manage Git hooks. When you first clone the repository, run:
+```bash
+DB_HOST=localhost
+DB_USER=local
+DB_PASSWORD=password
+DB_NAME=storage/sprintzero.sqlite3
+DB_QUEUE_NAME=storage/sprintzero_queue.sqlite3
+DB_CABLE_NAME=storage/sprintzero_cable.sqlite3
+DB_ADAPTER=sqlite3
+ANTHROPIC_API_KEY=your_anthropic_api_key
+JOB_CONCURRENCY=1
+```
+
+## Git Hooks
+
+SprintZero uses [overcommit](https://github.com/sds/overcommit) to manage Git hooks. When you first clone the repository, run:
 
 The following pre-commit hooks are configured:
 - RuboCop: Automatically fixes style issues and fails if there are unfixable issues
 - RSpec: Runs the test suite and fails if any tests fail
 
-### Cursor Rules
+## Cursor Rules
 
 I've added a couple of rules for Cursor's AI Agent. You can find them in the `.cursor/rules` folder.
 
 These set out my guidelines for how Cursor returns autocompletions, suggestions, and generated content.
 
 I currently have rules for Ruby implementation code and Rspec tests. They're not perfect but they work quite well.
+
+## Alternative Rails Starter Apps / Generators / Templates
+
+SprintZero isn't the only offering in the community. There's a few others, with different bundled software, pricing, licensing, defaults, configurability, etc.
+
+For example:
+- [Bullet Train](https://bullettrain.co/)
+- [RailsNotes StarterKit](https://railsnotes.xyz/starter-kit)
+- [Suspenders](https://github.com/thoughtbot/suspenders)
+- [Rails7Igniter](https://rails7igniter.vercel.app/)
+- [instant_rails](https://github.com/jasonswett/instant_rails)
+- [Jumpstart Pro](https://jumpstartrails.com/)
+- [Nextgen](https://github.com/mattbrictson/nextgen)
+
 
 ## 💡 Contributing
 
