@@ -8,8 +8,9 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
+
+  helper_method :stripe_enabled?
 
   private
 
@@ -23,5 +24,9 @@ class ApplicationController < ActionController::Base
       format.html { render file: Rails.root.join("public/404.html"), status: :not_found, layout: false }
       format.json { render json: { error: "The page you are looking for does not exist." }, status: :not_found }
     end
+  end
+
+  def stripe_enabled?
+    @stripe_enabled ||= ENV.fetch("STRIPE_ENABLED", "false") == "true"
   end
 end

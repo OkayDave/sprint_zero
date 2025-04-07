@@ -17,6 +17,12 @@ Rails.application.routes.draw do
 
   get "home", to: "home#show"
 
+  namespace :settings do
+    namespace :me do
+      resources :plans, only: [ :index, :create ]
+    end
+  end
+
   resources :static_pages, only: [ :show, :index ]
 
   # Defines the root path route ("/")

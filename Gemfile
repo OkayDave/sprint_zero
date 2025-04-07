@@ -126,3 +126,7 @@ gem "awesome_print"
 # AI Integration
 gem "omniai"
 gem "omniai-anthropic"
+
+# Stripe Subs
+gem "pay", "~> 8.0"
+gem "stripe", "~> 13.0"
