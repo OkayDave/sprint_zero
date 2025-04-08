@@ -1,3 +1,4 @@
 web: env RUBY_DEBUG_OPEN=true bin/rails server -p 3000
 css: bin/rails dartsass:watch
 jobs: bin/jobs
+webhooks: bin/wh

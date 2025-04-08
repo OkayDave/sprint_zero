@@ -14,6 +14,7 @@
     %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
     = stylesheet_link_tag :app, "data-turbo-track": "reload"
     = javascript_importmap_tags
+    = render "layouts/stripe_js"
   %body
     %nav.navbar.is-dark{:role => "navigation", "aria-label" => "main navigation"}
       .container
@@ -36,10 +37,11 @@
           %div.navbar-item
             %div.buttons
               - if user_signed_in?
-                = button_to "Sign Out", destroy_user_session_path, method: :delete, class: "button is-light", data: { turbo_confirm: "Are you sure you want to sign out?" }
+                = link_to "⚙️ Settings", edit_user_registration_path, class: "button is-info"
+                = button_to "🚶‍➡️Sign Out", destroy_user_session_path, method: :delete, class: "button is-danger", data: { turbo_confirm: "Are you sure you want to sign out?" }
               - else
-                = link_to "Login", new_user_session_path, class: "button is-light"
-                = link_to "Sign up", new_user_registration_path, class: "button is-primary"
+                = link_to "🔑 Login", new_user_session_path, class: "button is-light"
+                = link_to "👤 Sign up", new_user_registration_path, class: "button is-primary"
 
     %section.section
       .container

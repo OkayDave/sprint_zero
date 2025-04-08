@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require 'dotenv'
+
+Dotenv.load('.env.development.local', '.env')
+
+exec 'sleep infinity' unless ENV.fetch('STRIPE_ENABLED', 'false') == 'true'
+
+exec 'stripe listen --forward-to localhost:3000/pay/webhooks/stripe > ./log/stripe_webhooks.log'

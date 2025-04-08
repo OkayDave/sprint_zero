@@ -10,6 +10,8 @@
 
 # Create admin user
 admin = User.find_or_create_by!(email: 'admin@example.com') do |user|
+  user.first_name = 'Admin'
+  user.last_name = 'User'
   user.password = 'password123'
   user.password_confirmation = 'password123'
   user.role = 'admin'
@@ -59,14 +61,14 @@ SEED_COMMON_HTML_TAGS = "<p>, <h1>, <h2>, <strong>, <em>, <ul>, <li>, <a>, <bloc
 # Create AI prompts
 prompts =[
   {
-    title: 'Three Random Facts',
-    content: 'Please generate a short article with three random facts. The generated content can use the following html tags: #{SEED_COMMON_HTML_TAGS}. Do not use any other tags or styling.',
+    title: "Three Random Facts",
+    content: "Please generate a short article with three random facts. The generated content can use the following html tags: #{SEED_COMMON_HTML_TAGS}. Do not use any other tags or styling.",
     response_format: SEED_COMMON_RESPONSE,
     additional_options: SEED_COMMON_OPTIONS
   },
   {
-    title: 'Boring Legalese',
-    content: 'Please generate a boring legal document. The generated content can use the following html tags: #{SEED_COMMON_HTML_TAGS}. Do not use any other tags or styling.',
+    title: "Boring Legalese",
+    content: "Please generate a boring legal document. The generated content can use the following html tags: #{SEED_COMMON_HTML_TAGS}. Do not use any other tags or styling.",
     response_format: SEED_COMMON_RESPONSE,
     additional_options: SEED_COMMON_OPTIONS
   }

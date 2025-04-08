@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe StaticPagePolicy do
   let(:admin) { create(:user, :admin) }
-  let(:standard_user) { create(:user, :standard) }
+  let(:standard_user) { create(:user) }
 
   context 'being an admin' do
     subject { described_class.new(admin, StaticPage) }

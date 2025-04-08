@@ -1,0 +1,34 @@
+.section
+  .container
+    .columns.is-centered
+      .column.is-4
+        = user_settings_sidebar
+      .column.is-8
+        .box
+          %h1.title.has-text-centered Billing
+
+          -if @subscription.nil?
+            %p.has-text-centered.is-size-4
+              You don't have an active subscription.
+          
+            %hr.mt-4
+
+            %h2.subtitle Upgrade to PRO
+            %nav.level
+              - @plans.each do |plan_id, plan|
+                .level-item
+                  = form_with url: settings_me_plans_path, data: { turbo_method: :post } do |f|
+                    = f.hidden_field :plan_id, value: plan_id
+                    
+                    .field
+                      .control
+                        = f.submit "#{plan[:name]} - £#{plan[:price]}", class: "button is-primary"
+
+          -else
+            %p.has-text-centered.is-size-4
+              You have an active subscription.
+
+            %p
+              =link_to "Manage Subscription", @stripe_customer_portal_url, class: "button is-primary"
+            %pre
+              = @subscription.inspect

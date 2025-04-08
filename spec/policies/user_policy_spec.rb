@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe UserPolicy do
-  let(:admin) { create(:user, :admin) }
-  let(:standard_user) { create(:user, :standard) }
-  let(:other_user) { create(:user, :standard) }
+  let!(:admin) { create(:user, :admin) }
+  let!(:standard_user) { create(:user) }
+  let!(:other_user) { create(:user) }
 
   context 'being an admin' do
     subject { described_class.new(admin, User) }
@@ -40,21 +40,15 @@ RSpec.describe UserPolicy do
   end
 
   describe 'scope' do
-    before do
-      @user1 = create(:user, :standard)
-      @user2 = create(:user, :standard)
-      @admin = create(:user, :admin)
-    end
-
     it 'shows all users to admin' do
-      scope = Pundit.policy_scope!(@admin, User)
+      scope = Pundit.policy_scope!(admin, User)
       expect(scope.count).to eq(3)
     end
 
     it 'shows only themselves to standard users' do
-      scope = Pundit.policy_scope!(@user1, User)
+      scope = Pundit.policy_scope!(standard_user, User)
       expect(scope.count).to eq(1)
-      expect(scope.first).to eq(@user1)
+      expect(scope.first).to eq(standard_user)
     end
   end
 end

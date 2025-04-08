@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  pay_customer default_payment_processor: :stripe
+
   attribute :role, :string, default: "standard"
 
   # Include Devise modules
@@ -11,7 +13,7 @@ class User < ApplicationRecord
 
   ROLES = %w[admin standard].freeze
 
-  validates :role, inclusion: { in: ROLES }, allow_nil: true
+  validates :role, inclusion: { in: ROLES }, allow_nil: false
 
   def admin?
     role == "admin"
@@ -19,5 +21,9 @@ class User < ApplicationRecord
 
   def standard?
     role == "standard"
+  end
+
+  def active_subscription?
+    @active_subscription ||= payment_processor.subscription.present? && payment_processor.subscription.status == "active"
   end
 end
