@@ -8,6 +8,11 @@ PreCommit:
     enabled: true
     command: ['bundle', 'exec', 'rspec']
     on_warn: fail
+  
+  BundleAudit:
+    enabled: true
+    command: ['bundle', 'exec', 'bundle-audit', 'check', '--update']
+    on_warn: fail
 
   ALL:
     quiet: false

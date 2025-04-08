@@ -3,7 +3,6 @@ description:
 globs: *.rb
 alwaysApply: false
 ---
-
 # RSpec guidelines
 
 - Please write all test cases using RSpec
@@ -17,3 +16,4 @@ alwaysApply: false
 - We should be aiming for full coverage of all models, controllers, policies, helpers, jobs, and routes.
 - In most cases, any changes/removals/additions to implementation code should have corresponding tests
 - The goal is 100% coverage for all models, requests, helpers, services, policies, and routes.
+- Do not use outdated testing practices like checking for `assigns()` or `render_template`
