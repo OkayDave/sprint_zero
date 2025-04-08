@@ -15,10 +15,11 @@ Setting up a new Rails application can often feel repetitive — setting up the 
 - **Turbo** and **Hotwire** enabled out of the box
 - **Bulma** CSS framework for sleek and responsive UIs
 - **HAML** templating for cleaner view code
-- **Brakeman** and **Rubocop** for security and linting
+- **Brakeman**, **Bundle Audit**, and **Rubocop** for security and linting
 - **Rspec** for robust testing
 - **Avo** as the admin panel
 - **Anthropic's Claude Sonnet** for AI/LLM integration
+- **Devise** and **Pundit** for authentication and authorisation
 
 ## 🧰 Included Gems & Tools
 
@@ -35,7 +36,7 @@ Setting up a new Rails application can often feel repetitive — setting up the 
 | Pagination            | `pagy`       |
 | Rails                 | `rails 8.0.2`|
 | Ruby                  | `ruby 3.4.2` |
-| Security Scanning     | `brakeman`   |
+| Security Scanning     | `brakeman`, `bundle-audit`   |
 | Testing               | `capybara`, `factory_bot_rails`, `faker`, `pundit-matchers`, `rspec-rails`, `rswag`, `simplecov` |
 | View Templates        | `haml-rails` |
 
