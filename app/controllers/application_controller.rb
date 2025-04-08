@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :stripe_enabled?
 
+  def stripe_enabled?
+    @stripe_enabled ||= ENV.fetch("STRIPE_ENABLED", "false") == "true"
+  end
+
   private
 
   def user_not_authorized
@@ -24,9 +28,5 @@ class ApplicationController < ActionController::Base
       format.html { render file: Rails.root.join("public/404.html"), status: :not_found, layout: false }
       format.json { render json: { error: "The page you are looking for does not exist." }, status: :not_found }
     end
-  end
-
-  def stripe_enabled?
-    @stripe_enabled ||= ENV.fetch("STRIPE_ENABLED", "false") == "true"
   end
 end

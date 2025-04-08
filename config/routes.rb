@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, class_name: "User"
 
   authenticate :user, ->(u) { u.admin? } do
     mount Avo::Engine => "/admin"

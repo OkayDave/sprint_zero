@@ -59,6 +59,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "dotenv"
+
+  # gem 'stripe-ruby-mock', :require => 'stripe_mock'
 end
 
 group :development do
@@ -108,6 +110,9 @@ group :test do
 
   # For testing external APIs
   gem "webmock"
+
+  # Matchers for Rails
+  gem "shoulda-matchers"
 end
 
 gem "haml", "~> 6.3"

@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   ROLES = %w[admin standard].freeze
 
-  validates :role, inclusion: { in: ROLES }, allow_nil: true
+  validates :role, inclusion: { in: ROLES }, allow_nil: false
 
   def admin?
     role == "admin"

@@ -11,6 +11,7 @@ require 'rspec/rails'
 require 'factory_bot_rails'
 require 'database_cleaner/active_record'
 require 'rswag/specs'
+require 'warden'
 require 'devise'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -24,6 +25,13 @@ end
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include Warden::Test::Helpers, type: :system
+  config.include Warden::Test::Helpers, type: :request
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
@@ -60,9 +68,11 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
+end
 
-  config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::ControllerHelpers, type: :view
-  config.include Devise::Test::IntegrationHelpers, type: :feature
-  config.include Devise::Test::IntegrationHelpers, type: :request
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
