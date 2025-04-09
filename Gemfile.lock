@@ -312,14 +312,14 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.7-x86_64-linux-musl)
       racc (~> 1.4)
-    omniai (2.3.1)
+    omniai (2.4.0)
       event_stream_parser
       http
       logger
       zeitwerk
-    omniai-anthropic (2.2.0)
+    omniai-anthropic (2.4.0)
       event_stream_parser
-      omniai (~> 2.2)
+      omniai (~> 2.4)
       zeitwerk
     orm_adapter (0.5.0)
     ostruct (0.6.1)
