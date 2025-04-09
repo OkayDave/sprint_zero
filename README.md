@@ -1,3 +1,5 @@
+## ⚠️ This is a work-in-progress and not yet fit for human consumption ⚠️ 
+
 [![CI](https://github.com/OkayDave/sprint_zero/actions/workflows/ci.yml/badge.svg)](https://github.com/OkayDave/sprint_zero/actions/workflows/ci.yml)
 
 # SprintZero
