@@ -191,6 +191,7 @@ SprintZero uses [dotenv](https://github.com/bkeepers/dotenv) for environment con
 See `.env.example` and copy the file to your `*.local` overrides as described in the instructions above.
 
 ```bash
+# Database
 DB_HOST=localhost
 DB_USER=local
 DB_PASSWORD=password
@@ -198,9 +199,41 @@ DB_NAME=storage/sprintzero.sqlite3
 DB_QUEUE_NAME=storage/sprintzero_queue.sqlite3
 DB_CABLE_NAME=storage/sprintzero_cable.sqlite3
 DB_ADAPTER=sqlite3
+
+# Anthropic
 ANTHROPIC_API_KEY=your_anthropic_api_key
+
+# Job Concurrency
 JOB_CONCURRENCY=1
+
+# Stripe
+STRIPE_ENABLED=false
+STRIPE_PUBLIC_KEY=your_stripe_public_key
+STRIPE_PRIVATE_KEY=your_stripe_private_key
+STRIPE_SIGNING_SECRET=your_stripe_signing_secret
+STRIPE_WEBHOOK_RECEIVE_TEST_EVENTS=true
+STRIPE_CUSTOMER_PORTAL_URL=your_stripe_customer_portal_url
 ```
+## Subscriptions
+
+Stripe is integrated to support paid subscriptions. It's as low-code integrated as possible, redirecting users to Stripe-hosted pages. Administration is also done directly through the [Stripe Dashboard]('https://dashboard.stripe.com/test/dashboard')
+
+You'll need to configure your Stripe account with Subscription Products, API keys, signing secret, and the customer billing portal. Store this data in your `.env.development.local` file.
+
+Note: Stripe hides the link to 'Developers' at the bottom of the Dashboard's sidebar.
+
+| Required Info | Where to find It |
+|--|--|
+| Public / Private API Keys | [Developers  -> API Keys](https://dashboard.stripe.com/test/apikeys) |
+| Webhooks (Production only) | [Developers -> Webhooks](https://dashboard.stripe.com/test/webhooks) |
+| Signing Secret | Stripe CLI (`stripe login`) | 
+
+Once you have these values set, run the Stripe webhooks listener. It's configured in the `Procfile` so is part of `dev/bin`, or you can run it manually via `bin/wh` |
+
+| Required Action | Where to do it |
+| -- | -- |
+| Create Product Plans | [Billing -> Get started with Billing -> Set up your product catalogue](https://dashboard.stripe.com/test/billing/starter-guide) |
+| Activate Customer Portal Link | [Billing -> Get started with Billing -> Set up a self-serve customer portal](https://dashboard.stripe.com/test/settings/billing/portal) |
 
 ## Git Hooks
 
@@ -234,5 +267,5 @@ For example:
 
 ## 💡 Contributing
 
-Feel free to fork, clone, and make PRs. If there's a configuration or gem you think should be included, open an issue and let's discuss.
+Feel free to fork, clone, and make PRs. If there's a configuration or gem you think should be included, open an issue and let's discuss. Or just fork it and start your own starter kit. Call it SprintOne or something. You do you. I'm (probably) not your boss.
 

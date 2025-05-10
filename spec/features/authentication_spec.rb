@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Authentication", type: :feature do
-  let(:user) { create(:user, :standard) }
-  let(:admin) { create(:user, :admin) }
+  let!(:user) { create(:user) }
+  let!(:admin) { create(:user, :admin) }
 
   describe "Sign up" do
     it "allows a user to sign up" do
@@ -91,7 +91,7 @@ RSpec.describe "Authentication", type: :feature do
 
   describe "Email confirmation" do
     it "allows a user to confirm their email" do
-      user = create(:user, :standard, confirmed_at: nil)
+      user = create(:user, confirmed_at: nil)
       token = user.confirmation_token
       visit user_confirmation_path(confirmation_token: token)
 
@@ -99,7 +99,7 @@ RSpec.describe "Authentication", type: :feature do
     end
 
     it "allows a user to request confirmation email" do
-      user = create(:user, :standard, confirmed_at: nil)
+      user = create(:user, confirmed_at: nil)
       visit new_user_confirmation_path
 
       fill_in "Email", with: user.email
@@ -111,7 +111,8 @@ RSpec.describe "Authentication", type: :feature do
 
   describe "Account edit" do
     it "allows a user to update their email" do
-      sign_in user
+      # debugger
+      sign_in create(:user), scope: :user
       visit edit_user_registration_path
 
       fill_in "Email", with: "newemail@example.com"

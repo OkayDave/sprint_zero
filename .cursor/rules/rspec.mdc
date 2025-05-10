@@ -12,6 +12,7 @@ alwaysApply: false
 - Prefer Rspec request/feature tests over plain controller tests. Try to maintain compatibility with RSwag/OpenAPI
 - Do not change any Gem versions if tests fail
 - Do not test using `render_template` - check content via something like `expect(response.body).to include('content')
+- Do not test instance variables using `assigns()`
 - Don't get stuck in a rabbit-hole or failing cycle. If you get stuck, please stop and ask for help
 - We should be aiming for full coverage of all models, controllers, policies, helpers, jobs, and routes.
 - In most cases, any changes/removals/additions to implementation code should have corresponding tests

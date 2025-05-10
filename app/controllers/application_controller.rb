@@ -8,8 +8,13 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
+
+  helper_method :stripe_enabled?
+
+  def stripe_enabled?
+    @stripe_enabled ||= ENV.fetch("STRIPE_ENABLED", "false") == "true"
+  end
 
   private
 

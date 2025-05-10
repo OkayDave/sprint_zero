@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, class_name: "User"
 
   authenticate :user, ->(u) { u.admin? } do
     mount Avo::Engine => "/admin"
@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   get "home", to: "home#show"
+
+  namespace :settings do
+    namespace :me do
+      resources :plans, only: [ :index, :create ]
+    end
+  end
 
   resources :static_pages, only: [ :show, :index ]
 

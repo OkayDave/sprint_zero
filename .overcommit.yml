@@ -1,7 +1,7 @@
 PreCommit:
   RuboCop:
     enabled: true
-    command: ['bundle', 'exec', 'rubocop', '-A']
+    command: ['bundle', 'exec', 'rubocop']
     on_warn: fail
 
   RSpec:
@@ -25,3 +25,10 @@ PreCommit:
       - 'tmp/**/*'
       - 'log/**/*'
       - 'coverage/**/*' 
+
+CommitMsg:
+  ALL:
+    requires_files: false
+    quiet: false
+    on_warn: fail
+
